@@ -36,7 +36,7 @@
             <p>An audio demostration showing off the audio player</p>
 
             <audio controls>
-                <source src="media/Angel with a Shotgun.mp3" type="audio/mpeg">
+                <source src="media/Angel%20with%20a%20Shotgun.mp3" type="audio/mpeg">
                 Your browser does not support the audio player.
                 <a href="media/introduction.mp3">Download the recording</a>.
             </audio>
@@ -48,7 +48,7 @@
             <p>Video: The color Red</p>
 
             <video controls width="480">
-                <source src="media/Video Demo.mp4" type="video/mp4">
+                <source src="media/Video%20Demo.mp4" type="video/mp4">
                 <track src="media/portfolio-tour.vtt"
                        kind="captions"
                        srclang="en"
@@ -73,6 +73,22 @@
             <noscript>
                 <p>Enable JavaScript to display the canvas drawing.</p>
             </noscript>
+
+            <h3>SVG Drawing</h3>
+                <p>
+                    Unlike the canvas drawing, this rectangle is described
+                    directly with SVG markup.
+                </p>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="300"
+                    height="150"
+                    viewBox="0 0 300 150"
+                    role="img"
+                    aria-labelledby="rectangle-title">
+                    <title id="rectangle-title">A blue rectangle drawn with SVG</title>
+                    <rect x="50" y="35" width="200" height="80" fill="blue"></rect>
+                </svg>
         </section>
 
         <section>
@@ -101,6 +117,16 @@
         const context = canvas.getContext("2d");
         context.fillStyle = "blue";
         context.fillRect(50, 35, 200, 80);
+    </script>
+
+    <hello-world></hello-world>
+
+    <script>
+        customElements.define("hello-world", class extends HTMLElement {
+            connectedCallback() {
+                console.log("Hello World!");
+         }
+        });
     </script>
 </body>
 </html>
